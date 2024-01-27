@@ -13,9 +13,9 @@ type Outage struct {
 	Start    string `json:"start"`
 }
 
-func (o Outage) String() string {
+func (out Outage) String() string {
 	return fmt.Sprintf("AreaName: %s\nStart: %s\nFinish: %s\nStage: %d\n",
-		o.AreaName, o.Start, o.Finish, o.Stage)
+		out.AreaName, out.Start, out.Finish, out.Stage)
 }
 
 func (out Outage) outageToSlice(outage Outage) []string {
