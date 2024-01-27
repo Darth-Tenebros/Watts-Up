@@ -18,6 +18,6 @@ func (out Outage) String() string {
 		out.AreaName, out.Start, out.Finish, out.Stage)
 }
 
-func (out Outage) outageToSlice(outage Outage) []string {
+func (out Outage) OutageToSlice() []string {
 	return []string{strconv.Itoa(out.Stage), out.AreaName, out.Start, out.Finish}
 }
