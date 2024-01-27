@@ -1,6 +1,9 @@
 package models
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 type Outage struct {
 	AreaName string `json:"area_name"`
@@ -13,4 +16,8 @@ type Outage struct {
 func (o Outage) String() string {
 	return fmt.Sprintf("AreaName: %s\nStart: %s\nFinish: %s\nStage: %d\n",
 		o.AreaName, o.Start, o.Finish, o.Stage)
+}
+
+func (out Outage) outageToSlice(outage Outage) []string {
+	return []string{strconv.Itoa(out.Stage), out.AreaName, out.Start, out.Finish}
 }
