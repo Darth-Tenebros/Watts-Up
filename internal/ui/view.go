@@ -10,37 +10,37 @@ var style = lipgloss.NewStyle().
 	BorderStyle(lipgloss.NormalBorder()).
 	BorderForeground(lipgloss.Color(240))
 
-type model struct {
-	table table.Model
+type TableModel struct {
+	Table table.Model
 }
 
-func (m model) Init() tea.Cmd {
+func (m TableModel) Init() tea.Cmd {
 	return nil
 }
 
-func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
+func (m TableModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	var cmd tea.Cmd
 	switch msg := msg.(type) {
 	case tea.KeyMsg:
 		switch msg.String() {
 		case "esc":
-			if m.table.Focused() {
-				m.table.Blur()
+			if m.Table.Focused() {
+				m.Table.Blur()
 			} else {
-				m.table.Focus()
+				m.Table.Focus()
 			}
 		case "q", "ctrl+c":
 			return m, tea.Quit
 		case "enter":
 			return m, tea.Batch(
-				tea.Printf("Let's go to %s!", m.table.SelectedRow()[1]),
+				tea.Printf("Let's go to %s!", m.Table.SelectedRow()[1]),
 			)
 		}
 	}
-	m.table, cmd = m.table.Update(msg)
+	m.Table, cmd = m.Table.Update(msg)
 	return m, cmd
 }
 
-func (m model) View() string {
-	return style.Render(m.table.View()) + "\n"
+func (m TableModel) View() string {
+	return style.Render(m.Table.View()) + "\n"
 }
