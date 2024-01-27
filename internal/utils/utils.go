@@ -7,7 +7,7 @@ import (
 )
 
 type Schedule struct {
-	times []models.Outage
+	Times []models.Outage
 }
 
 func (sch *Schedule) UnmarshalResponse(data []byte) error {
@@ -36,7 +36,7 @@ func (sch *Schedule) unmarshalSingleItemResponse(data []byte) error {
 	if err != nil {
 		return err
 	}
-	sch.times = []models.Outage{outage}
+	sch.Times = []models.Outage{outage}
 	return nil
 }
 
@@ -46,6 +46,6 @@ func (sch *Schedule) unmarshalManyItemsResponse(data []byte) error {
 	if err != nil {
 		return err
 	}
-	sch.times = outages
+	sch.Times = outages
 	return nil
 }
