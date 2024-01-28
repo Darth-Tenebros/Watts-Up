@@ -6,7 +6,7 @@ Simply install/run the code and you'll be presented with locations. Select the o
 
 ## Why?
 why not?
-Also I just needed a project to get me familiar with the Golang programming langauge.
+Also, I just needed a project to get me familiar with the Golang programming language.
 
 
 ## Data
@@ -20,12 +20,16 @@ ESP uses data from a [FREE API](https://eskom-calendar-api.shuttleapp.rs/)🐐. 
     cd bin
     sudo mv esp /usr/local/bin/ 
     ```
-   then you'll be able too use it system wide
+   then you'll be able to use it system-wide
+
+
 3. if on a different system (*nix) and you want a binary, clone this repo and do:
     ```
     make
     ```
    then install as in `step 2`
+
+
 4. windows: i don't know
 
 ## TODO
