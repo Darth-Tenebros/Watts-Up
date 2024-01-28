@@ -1,15 +1,24 @@
 package ui
 
 import (
+	"eskom-se-poes/internal/utils"
 	"github.com/charmbracelet/bubbles/list"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
 )
 
+type Item struct {
+	AreaName string
+}
+
+func (i Item) Title() string       { return i.AreaName }
+func (i Item) Description() string { return "random desc" }
+func (i Item) FilterValue() string { return i.AreaName }
+
 var docStyle = lipgloss.NewStyle().Margin(1, 2)
 
 type ListModel struct {
-	list         list.Model
+	List         list.Model
 	SelectedItem int
 }
 
@@ -24,12 +33,19 @@ func (m ListModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		switch msg.String() {
 		case "ctrl+c", "q":
 			return m, tea.Quit
+		case "enter":
+			areaName := m.List.Items()[m.List.Index()]
+			return utils.LoadTableView(areaName.FilterValue()), nil
 		}
 
+	case tea.WindowSizeMsg:
+		h, v := docStyle.GetFrameSize()
+		m.List.SetSize(msg.Width-h, msg.Height-v)
 	}
-	m.list, cmd = m.list.Update(msg)
+
+	m.List, cmd = m.List.Update(msg)
 	return m, cmd
 }
 func (m ListModel) View() string {
-	return docStyle.Render(m.list.View())
+	return docStyle.Render(m.List.View())
 }
