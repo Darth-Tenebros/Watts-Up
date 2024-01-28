@@ -14,6 +14,7 @@ import (
 
 func main() {
 	link := "https://eskom-calendar-api.shuttleapp.rs/outages/"
+	// TODO: FETCH FROM COMMAND LINE
 	location := "city-of-cape-town-area-15"
 
 	schedule, err := getSchedule(link, location)
@@ -52,7 +53,7 @@ func main() {
 		Bold(false)
 	t.SetStyles(s)
 
-	m := ui.TableModel{t}
+	m := ui.TableModel{Table: t}
 	if _, err := tea.NewProgram(m).Run(); err != nil {
 		fmt.Println("Error running program:", err)
 		os.Exit(1)
