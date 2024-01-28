@@ -13,6 +13,33 @@ import (
 )
 
 func main() {
+
+}
+
+func getSchedule(link, area string) (*utils.Schedule, error) {
+	fullUrl := link + area
+	var schedule utils.Schedule
+
+	res, err := http.Get(fullUrl)
+	if err != nil {
+		return nil, err
+	}
+	defer res.Body.Close()
+
+	body, err := io.ReadAll(res.Body)
+	if err != nil {
+		return nil, err
+	}
+
+	err = schedule.UnmarshalResponse(body)
+	if err != nil {
+		return nil, err
+	}
+
+	return &schedule, nil
+}
+
+func loadTableView() {
 	link := "https://eskom-calendar-api.shuttleapp.rs/outages/"
 	// TODO: FETCH FROM COMMAND LINE
 	location := "city-of-cape-town-area-15"
@@ -58,28 +85,4 @@ func main() {
 		fmt.Println("Error running program:", err)
 		os.Exit(1)
 	}
-
-}
-
-func getSchedule(link, area string) (*utils.Schedule, error) {
-	fullUrl := link + area
-	var schedule utils.Schedule
-
-	res, err := http.Get(fullUrl)
-	if err != nil {
-		return nil, err
-	}
-	defer res.Body.Close()
-
-	body, err := io.ReadAll(res.Body)
-	if err != nil {
-		return nil, err
-	}
-
-	err = schedule.UnmarshalResponse(body)
-	if err != nil {
-		return nil, err
-	}
-
-	return &schedule, nil
 }
