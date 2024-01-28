@@ -2,7 +2,6 @@ package main
 
 import (
 	"eskom-se-poes/internal/ui"
-	"eskom-se-poes/internal/utils"
 	"fmt"
 	"github.com/charmbracelet/bubbles/list"
 	tea "github.com/charmbracelet/bubbletea"
@@ -26,7 +25,7 @@ func main() {
 	}
 
 	areas := strings.Split(strings.TrimSuffix(string(body), "\n"), ",")
-	items := utils.AreasToListItems(areas)
+	items := ui.AreasToListItems(areas)
 
 	m := ui.ListModel{List: list.New(items, list.NewDefaultDelegate(), 10, 10)}
 	m.List.Title = "SA Load Shedding Areas"
