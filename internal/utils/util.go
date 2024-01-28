@@ -1,17 +1,14 @@
 package utils
 
 import (
-	"eskom-se-poes/internal/ui"
 	"fmt"
-	"github.com/charmbracelet/bubbles/list"
 	"github.com/charmbracelet/bubbles/table"
-	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
 	"io"
 	"net/http"
 )
 
-func LoadTableView(areaName string) tea.Model {
+func LoadTableView(areaName string) table.Model {
 	link := "https://eskom-calendar-api.shuttleapp.rs/outages/"
 	// TODO: FETCH FROM COMMAND LINE
 	location := "city-of-cape-town-area-15"
@@ -52,8 +49,8 @@ func LoadTableView(areaName string) tea.Model {
 		Bold(false)
 	t.SetStyles(s)
 
-	m := ui.TableModel{Table: t}
-	return m
+	//m := ui.TableModel{Table: t}
+	return t
 }
 
 func getSchedule(link, area string) (*Schedule, error) {
@@ -77,15 +74,4 @@ func getSchedule(link, area string) (*Schedule, error) {
 	}
 
 	return &schedule, nil
-}
-
-func AreasToListItems(areas []string) []list.Item {
-	var items []list.Item
-	for _, area := range areas {
-		item := ui.Item{
-			AreaName: area,
-		}
-		items = append(items, item)
-	}
-	return items
 }
