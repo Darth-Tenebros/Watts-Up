@@ -2,7 +2,7 @@
 
 
 Eskom Se Poes is a cli based Load Shedding schedule checker.
-SimplY install/run the code and you'll be presented with locations. Select the one you care about and you'll be presented with a table showing the schedule for that location.
+Simply install/run the code and you'll be presented with locations. Select the one you care about and you'll be presented with a table showing the schedule for that location.
 
 ## Why?
 why not?
