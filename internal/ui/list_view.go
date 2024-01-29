@@ -5,7 +5,7 @@ import (
 	"github.com/charmbracelet/bubbles/list"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
-	"strings"
+	"regexp"
 )
 
 type Item struct {
@@ -47,7 +47,8 @@ func (m ListModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return m, tea.Quit
 		case "enter":
 			areaName := m.List.Items()[m.List.Index()]
-			return TableModel{Table: utils.LoadTableView(strings.Trim(areaName.FilterValue(), `"`))}, nil
+			re := regexp.MustCompile("[^a-zA-Z0-9-]")
+			return TableModel{Table: utils.LoadTableView(re.ReplaceAllString(areaName.FilterValue(), ""))}, nil
 		}
 
 	case tea.WindowSizeMsg:
