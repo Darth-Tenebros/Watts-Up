@@ -10,10 +10,8 @@ import (
 
 func LoadTableView(areaName string) table.Model {
 	link := "https://eskom-calendar-api.shuttleapp.rs/outages/"
-	// TODO: FETCH FROM COMMAND LINE
-	location := "city-of-cape-town-area-15"
 
-	schedule, err := getSchedule(link, location)
+	schedule, err := getSchedule(link, areaName)
 	if err != nil {
 		fmt.Print(err)
 	}
