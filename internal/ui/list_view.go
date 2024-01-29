@@ -5,6 +5,7 @@ import (
 	"github.com/charmbracelet/bubbles/list"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
+	"strings"
 )
 
 type Item struct {
@@ -46,7 +47,7 @@ func (m ListModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return m, tea.Quit
 		case "enter":
 			areaName := m.List.Items()[m.List.Index()]
-			return TableModel{Table: utils.LoadTableView(areaName.FilterValue())}, nil
+			return TableModel{Table: utils.LoadTableView(strings.Trim(areaName.FilterValue(), `"`))}, nil
 		}
 
 	case tea.WindowSizeMsg:
