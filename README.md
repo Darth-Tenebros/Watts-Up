@@ -14,7 +14,8 @@ Also, I just needed a project to get me familiar with the Golang programming lan
 ESP uses data from a [FREE API](https://eskom-calendar-api.shuttleapp.rs/)🐐. You can find the source code for the api [HERE](https://github.com/beyarkay/eskom-calendar-api).
 
 ## usage
-1. clone this repo and run the code everytime you wanna use the app
+_you'll need to have go1.21.4 installed to build the app yourself_
+1. clone this repo and run the code everytime you want to use the app
 
 2. if on Ubuntu/Ubuntu based OS, find binary in the bin folder and do:
     ```
@@ -22,7 +23,6 @@ ESP uses data from a [FREE API](https://eskom-calendar-api.shuttleapp.rs/)🐐. 
     sudo mv esp /usr/local/bin/ 
     ```
    then you'll be able to use it system-wide
-
 
 3. if on a different system (*nix) and you want a binary, clone this repo and do:
     ```
