@@ -8,7 +8,7 @@ import (
 
 var style = lipgloss.NewStyle().
 	BorderStyle(lipgloss.NormalBorder()).
-	BorderForeground(lipgloss.Color(240))
+	BorderForeground(lipgloss.Color("240"))
 
 type TableModel struct {
 	Table table.Model
