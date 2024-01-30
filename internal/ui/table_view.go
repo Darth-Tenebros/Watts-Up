@@ -7,7 +7,7 @@ import (
 )
 
 var style = lipgloss.NewStyle().
-	BorderStyle(lipgloss.NormalBorder()).
+	BorderStyle(lipgloss.RoundedBorder()).
 	BorderForeground(lipgloss.Color("240"))
 
 type TableModel struct {
