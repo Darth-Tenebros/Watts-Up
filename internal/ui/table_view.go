@@ -30,7 +30,8 @@ func (m TableModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				m.Table.Focus()
 			}
 		case "q", "ctrl+c":
-			return m, tea.Quit
+			listModel := LoadListView()
+			return listModel, nil
 		case "enter":
 			return m, tea.Batch(
 				tea.Printf("Let's go to %s!", m.Table.SelectedRow()[1]),

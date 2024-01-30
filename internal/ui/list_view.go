@@ -1,7 +1,6 @@
 package ui
 
 import (
-	"eskom-se-poes/internal/utils"
 	"github.com/charmbracelet/bubbles/list"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
@@ -48,7 +47,7 @@ func (m ListModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		case "enter":
 			areaName := m.List.Items()[m.List.Index()]
 			re := regexp.MustCompile("[^a-zA-Z0-9-]")
-			return TableModel{Table: utils.LoadTableView(re.ReplaceAllString(areaName.FilterValue(), ""))}, nil
+			return TableModel{Table: LoadTableView(re.ReplaceAllString(areaName.FilterValue(), ""))}, nil
 		}
 
 	case tea.WindowSizeMsg:
@@ -60,5 +59,7 @@ func (m ListModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	return m, cmd
 }
 func (m ListModel) View() string {
+	m.List.SetHeight(35)
+	m.List.SetWidth(50)
 	return docStyle.Render(m.List.View())
 }
