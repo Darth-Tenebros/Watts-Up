@@ -9,6 +9,7 @@ import (
 	"github.com/charmbracelet/lipgloss"
 	"io"
 	"net/http"
+	"strconv"
 	"strings"
 )
 
@@ -22,7 +23,7 @@ func LoadTableView(areaName string) table.Model {
 
 	var rows []table.Row
 	for _, outage := range schedule.Times {
-		rows = append(rows, outage.OutageToSlice())
+		rows = append(rows, []string{strconv.Itoa(outage.Stage), outage.AreaName, outage.Start, outage.Finish})
 	}
 
 	columns := []table.Column{
