@@ -1,8 +1,12 @@
 package models
 
-import "github.com/google/uuid"
+import "fmt"
 
-type area struct {
-	Id       uuid.UUID
+type Area struct {
+	Id       string
 	AreaName string
+}
+
+func (a Area) String() string {
+	return fmt.Sprintf("Area: %s", a.AreaName)
 }
