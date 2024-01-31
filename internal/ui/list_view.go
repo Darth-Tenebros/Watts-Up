@@ -1,10 +1,14 @@
 package ui
 
 import (
+	"eskom-se-poes/internal/repository"
+	"eskom-se-poes/internal/utils"
+	"log"
+	"regexp"
+
 	"github.com/charmbracelet/bubbles/list"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
-	"regexp"
 )
 
 type Item struct {
@@ -48,6 +52,23 @@ func (m ListModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			areaName := m.List.Items()[m.List.Index()]
 			re := regexp.MustCompile("[^a-zA-Z0-9-]")
 			return TableModel{Table: LoadTableView(re.ReplaceAllString(areaName.FilterValue(), ""))}, nil
+		case "f":
+			areaName := m.List.Items()[m.List.Index()]
+			re := regexp.MustCompile("[^a-zA-Z0-9-]")
+
+			db, err := utils.OpenDatabase()
+			if err != nil {
+				return m, nil
+			}
+			defer db.Close()
+
+			areaRepo := repository.NewAreaRepo(db)
+			_, err = areaRepo.AddFavourite(re.ReplaceAllString(areaName.FilterValue(), ""))
+			log.Println(err)
+			if err != nil {
+				return m, nil
+			}
+			return m, nil
 		}
 
 	case tea.WindowSizeMsg:
