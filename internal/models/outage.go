@@ -2,7 +2,6 @@ package models
 
 import (
 	"fmt"
-	"strconv"
 )
 
 type Outage struct {
@@ -16,8 +15,4 @@ type Outage struct {
 func (out Outage) String() string {
 	return fmt.Sprintf("AreaName: %s\nStart: %s\nFinish: %s\nStage: %d\n",
 		out.AreaName, out.Start, out.Finish, out.Stage)
-}
-
-func (out Outage) OutageToSlice() []string {
-	return []string{strconv.Itoa(out.Stage), out.AreaName, out.Start, out.Finish}
 }
