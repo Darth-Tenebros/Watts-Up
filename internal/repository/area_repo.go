@@ -24,7 +24,7 @@ func (area *AreaRepo) AddFavourite(areaName string) (string, error) {
 	}
 
 	if !exists {
-		sqlStatement, err := area.DB.Prepare("INSERT INTO projects(project_id, project_name) VALUES (?, ?)")
+		sqlStatement, err := area.DB.Prepare("INSERT INTO areas(id, area_name) VALUES (?, ?)")
 		if err != nil {
 			return "", err
 		}
