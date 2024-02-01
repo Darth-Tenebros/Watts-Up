@@ -8,9 +8,11 @@ import (
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
 	"io"
+	"log"
 	"net/http"
 	"strconv"
 	"strings"
+	"time"
 )
 
 func LoadTableView(areaName string) table.Model {
@@ -23,7 +25,18 @@ func LoadTableView(areaName string) table.Model {
 
 	var rows []table.Row
 	for _, outage := range schedule.Times {
-		rows = append(rows, []string{strconv.Itoa(outage.Stage), outage.AreaName, outage.Start, outage.Finish})
+		const format = "02 January 2006 15:04:05 MST"
+		start, err := time.Parse(time.RFC3339, outage.Start)
+		if err != nil {
+			log.Println(err)
+		}
+
+		end, err := time.Parse(time.RFC3339, outage.Finish)
+		if err != nil {
+			log.Println(err)
+		}
+
+		rows = append(rows, []string{strconv.Itoa(outage.Stage), outage.AreaName, start.Format(format), end.Format(format)})
 	}
 
 	columns := []table.Column{
