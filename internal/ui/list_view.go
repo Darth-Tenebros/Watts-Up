@@ -48,11 +48,13 @@ func (m ListModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		switch msg.String() {
 		case "ctrl+c", "q":
 			return m, tea.Quit
+
 		case "enter":
 			areaName := m.List.Items()[m.List.Index()]
 			re := regexp.MustCompile("[^a-zA-Z0-9-]")
 			return TableModel{Table: LoadTableView(re.ReplaceAllString(areaName.FilterValue(), ""))}, nil
-		case "f":
+
+		case "a":
 			areaName := m.List.Items()[m.List.Index()]
 			re := regexp.MustCompile("[^a-zA-Z0-9-]")
 
@@ -69,6 +71,31 @@ func (m ListModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				return m, nil
 			}
 			return m, nil
+
+		case "b":
+			listModel := LoadListView()
+			return listModel, nil
+
+		case "f":
+			db, err := utils.OpenDatabase()
+			if err != nil {
+				return m, nil
+			}
+			defer db.Close()
+			areaRepo := repository.NewAreaRepo(db)
+
+			names, err := areaRepo.GetAllAreaNames()
+			if err != nil {
+				log.Println(err)
+				return m, nil
+			}
+			items := AreasToListItems(names)
+			m := ListModel{List: list.New(items, list.NewDefaultDelegate(), 10, 10)}
+			//m.List.SetHeight(35)
+			//m.List.SetWidth(50)
+			m.List.Title = "SA Load Shedding Areas - FAVOURITES"
+			return m, nil
+
 		}
 
 	case tea.WindowSizeMsg:
