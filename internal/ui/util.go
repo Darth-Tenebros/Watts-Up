@@ -49,7 +49,7 @@ func LoadTableView(areaName string) table.Model {
 	s.Selected = s.Selected.
 		Foreground(lipgloss.Color("229")).
 		Background(lipgloss.Color("57")).
-		Bold(false)
+		Bold(false).BorderStyle(lipgloss.RoundedBorder())
 	t.SetStyles(s)
 
 	//m := ui.TableModel{Table: t}
