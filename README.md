@@ -15,24 +15,28 @@ ESP uses data from a [FREE API](https://eskom-calendar-api.shuttleapp.rs/)🐐. 
 
 ## usage
 _you'll need to have go1.21.4 installed to build the app yourself_
-1. clone this repo and run the code everytime you want to use the app
+1. option 1: clone this repo and run the code everytime you want to use the app
 
-2. if on Ubuntu/Ubuntu based OS, find binary in the bin folder and do:
+2. option 2: if on Ubuntu/Ubuntu based OS, do (from root of project):
     ```
+   make
     cd bin
     sudo mv esp /usr/local/bin/ 
     ```
-   then you'll be able to use it system-wide
-
-3. if on a different system (*nix) and you want a binary, clone this repo and do:
-    ```
-    make
-    ```
-   then install as in `step 2`
+ - then you'll be able to use it system-wide
 
 
-4. windows: i don't know
+3. windows: i don't know
+
+## Keys
+from the list view:
+- `a` : the area name that the selector is currently on will be inserted into your favourites.
+- `b` : allows you to go back to the main list view (from favourites or table view).
+- `enter` : in list view this will take you to the table view (load schedule) for the current area.
+- `q` or `ctrl + c` : quits the program
+
 
 ## TODO
 - document code
-- add more features
+- add delete option in the favourites view
+- 
