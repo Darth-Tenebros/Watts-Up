@@ -42,4 +42,5 @@ from the list view:
 ## TODO
 - document code
 - add delete option in the favourites view
-- 
+- maybe add aliases for the area names. right now some locations are not searchable by name: e.g Samora,Philippi etc
+  fall under `city-of-cape-town-area-16`. Adding aliases would make filtering better.
