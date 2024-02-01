@@ -19,12 +19,14 @@ _you'll need to have go1.21.4 installed to build the app yourself_
 
 2. option 2: if on Ubuntu/Ubuntu based OS, do (from root of project):
     ```
-   make
+    make
     cd bin
-    sudo mv esp /usr/local/bin/ 
-   esp
+    sudo mv esp /usr/local/bin/
     ```
- - then you'll be able to use it system-wide
+ - then you'll be able to use it system-wide like:
+   ```
+    esp
+   ```
 
 
 3. windows: i don't know
