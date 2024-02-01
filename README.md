@@ -22,6 +22,7 @@ _you'll need to have go1.21.4 installed to build the app yourself_
    make
     cd bin
     sudo mv esp /usr/local/bin/ 
+   esp
     ```
  - then you'll be able to use it system-wide
 
