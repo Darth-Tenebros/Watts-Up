@@ -47,3 +47,25 @@ func (area *AreaRepo) idExists(id string) (bool, error) {
 	}
 	return count > 0, nil
 }
+
+func (area *AreaRepo) GetAllAreaNames() ([]string, error) {
+	var names []string
+	rows, err := area.DB.Query("SELECT area_name FROM areas")
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		var areaName string
+		if err := rows.Scan(&areaName); err != nil {
+			return nil, err
+		}
+		names = append(names, areaName)
+	}
+
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return names, nil
+}
