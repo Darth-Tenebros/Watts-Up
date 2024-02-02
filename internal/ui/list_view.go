@@ -26,9 +26,12 @@ func AreasToListItems(areas []string) []list.Item {
 	return items
 }
 
-func (i Item) Title() string       { return i.AreaName }
-func (i Item) Description() string { return "random desc" }
-func (i Item) FilterValue() string { return i.AreaName }
+func (i Item) Title() string {
+	re := regexp.MustCompile("[^a-zA-Z0-9-]")
+	return re.ReplaceAllString(i.AreaName, "")
+}
+func (i Item) Description() string { return "" }
+func (i Item) FilterValue() string { return i.Title() }
 
 var docStyle = lipgloss.NewStyle().Margin(1, 2)
 
@@ -51,8 +54,8 @@ func (m ListModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 		case "enter":
 			areaName := m.List.Items()[m.List.Index()]
-			re := regexp.MustCompile("[^a-zA-Z0-9-]")
-			return TableModel{Table: LoadTableView(re.ReplaceAllString(areaName.FilterValue(), ""))}, nil
+			//re := regexp.MustCompile("[^a-zA-Z0-9-]")
+			return TableModel{Table: LoadTableView(areaName.FilterValue())}, nil
 
 		case "a":
 			areaName := m.List.Items()[m.List.Index()]
