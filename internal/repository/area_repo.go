@@ -69,3 +69,14 @@ func (area *AreaRepo) GetAllAreaNames() ([]string, error) {
 	}
 	return names, nil
 }
+
+func (area *AreaRepo) DeleteAreaFromFavourites(id string) error {
+	sqlStatement, err := area.DB.Prepare("DELETE FROM areas WHERE id = ?")
+	if err != nil {
+		return err
+	}
+	defer sqlStatement.Close()
+
+	_, err = sqlStatement.Exec(id)
+	return err
+}
