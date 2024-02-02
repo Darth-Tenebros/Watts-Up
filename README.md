@@ -37,11 +37,12 @@ from the list view:
 - `b` : allows you to go back to the main list view (from favourites or table view).
 - `enter` : in list view this will take you to the table view (load schedule) for the current area.
 - `q` or `ctrl + c` : quits the program
+- `d`: when in the `Favourites` view, press to delete selected area from favourites.
 
 
 ## TODO
-- document code
-- add delete option in the favourites view
-- maybe add aliases for the area names. right now some locations are not searchable by name: e.g Samora,Philippi etc
+- [ ] document code.
+- [x] add delete option in the favourites view
+- [ ] maybe add aliases for the area names. right now some locations are not searchable by name: e.g Samora,Philippi etc
   fall under `city-of-cape-town-area-16`. Adding aliases would make filtering better.
-- add help menu to all views.
+- [ ] add help menu to all views.
