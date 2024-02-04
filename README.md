@@ -17,7 +17,7 @@ ESP uses data from a [FREE API](https://eskom-calendar-api.shuttleapp.rs/)🐐. 
 _you'll need to have go1.21.4 installed to build the app yourself_
 1. option 1: clone this repo and run the code everytime you want to use the app
 
-2. option 2: if on Ubuntu/Ubuntu based OS, do (from root of project):
+2. option 2: if on a *nix system, do (from root of project):
     ```
     make
     cd bin
