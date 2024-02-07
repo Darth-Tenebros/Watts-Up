@@ -7,7 +7,7 @@ Simply install/run the code and you'll be presented with locations. Select the o
 
 ## Why?
 why not?
-Also, I just needed a project to get me familiar with the Golang programming language.
+Also, I just needed a project to get me familiar with the Golang programming language and some other technologies.
 
 
 ## Data
@@ -46,3 +46,4 @@ from the list view:
 - [ ] maybe add aliases for the area names. right now some locations are not searchable by name: e.g Samora,Philippi etc
   fall under `city-of-cape-town-area-16`. Adding aliases would make filtering better.
 - [ ] add help menu to all views.
+- [ ] Dockerize project
