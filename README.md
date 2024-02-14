@@ -2,7 +2,7 @@
 
 ![demo image of esp](./img/demo.gif)
 
-Eskom Se Poes is a cli based Load Shedding schedule checker.
+Watts-Up is a cli based Load Shedding schedule checker.
 Simply install/run the code and you'll be presented with locations. Select the one you care about and you'll be presented with a table showing the schedule for that location.
 
 ## Why?
@@ -11,7 +11,7 @@ Also, I just needed a project to get me familiar with the Golang programming lan
 
 
 ## Data
-ESP uses data from a [FREE API](https://eskom-calendar-api.shuttleapp.rs/)🐐. You can find the source code for the api [HERE](https://github.com/beyarkay/eskom-calendar-api).
+Watts-Up uses data from a [FREE API](https://eskom-calendar-api.shuttleapp.rs/)🐐. You can find the source code for the api [HERE](https://github.com/beyarkay/eskom-calendar-api).
 
 ## usage
 _you'll need to have go1.21.4 installed to build the app yourself_
@@ -25,7 +25,7 @@ _you'll need to have go1.21.4 installed to build the app yourself_
     ```
  - then you'll be able to use it system-wide like:
    ```
-    esp
+    watts
    ```
 
 
