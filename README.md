@@ -1,4 +1,4 @@
-# Eskom Se Poes
+# Watts-Up
 
 ![demo image of esp](./img/demo.gif)
 
