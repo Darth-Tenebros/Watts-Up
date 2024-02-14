@@ -1,6 +1,6 @@
 
 BIN_DIR=./bin/
-MAIN_PACKAGE=./cmd/eskom-se-poes/
+MAIN_PACKAGE=./cmd/watts-up/
 
 # Default target
 .DEFAULT_GOAL=all
@@ -13,7 +13,7 @@ clean:
 # Target to build the program
 build:
 	@echo "Building program..."
-	@go build -o $(BIN_DIR)/esp $(MAIN_PACKAGE)
+	@go build -o $(BIN_DIR)/watts $(MAIN_PACKAGE)
 
 # Target to clean and build the program
 all: clean build
