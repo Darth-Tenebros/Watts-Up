@@ -47,3 +47,4 @@ from the list view:
   fall under `city-of-cape-town-area-16`. Adding aliases would make filtering better.
 - [ ] add help menu to all views.
 - [ ] Dockerize project
+- [ ] Fix re-render bug
