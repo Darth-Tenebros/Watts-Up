@@ -1,7 +1,6 @@
 package ui
 
 import (
-	"eskom-se-poes/internal/utils"
 	"fmt"
 	"github.com/charmbracelet/bubbles/list"
 	"github.com/charmbracelet/bubbles/table"
@@ -13,6 +12,7 @@ import (
 	"strconv"
 	"strings"
 	"time"
+	"watts-up/internal/utils"
 )
 
 func LoadTableView(areaName string) table.Model {

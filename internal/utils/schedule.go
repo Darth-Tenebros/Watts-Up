@@ -2,8 +2,8 @@ package utils
 
 import (
 	"encoding/json"
-	"eskom-se-poes/internal/models"
 	"fmt"
+	"watts-up/internal/models"
 )
 
 type Schedule struct {

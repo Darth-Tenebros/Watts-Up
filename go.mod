@@ -1,4 +1,4 @@
-module eskom-se-poes
+module watts-up
 
 go 1.21
 

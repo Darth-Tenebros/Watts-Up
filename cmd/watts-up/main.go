@@ -1,10 +1,10 @@
 package main
 
 import (
-	"eskom-se-poes/internal/ui"
 	"fmt"
 	tea "github.com/charmbracelet/bubbletea"
 	"os"
+	"watts-up/internal/ui"
 )
 
 func main() {

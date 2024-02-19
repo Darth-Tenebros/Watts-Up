@@ -2,8 +2,8 @@ package repository
 
 import (
 	"database/sql"
-	"eskom-se-poes/internal/utils"
 	"fmt"
+	"watts-up/internal/utils"
 )
 
 type AreaRepo struct {

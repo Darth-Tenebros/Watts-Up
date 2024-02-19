@@ -1,10 +1,10 @@
 package ui
 
 import (
-	"eskom-se-poes/internal/repository"
-	"eskom-se-poes/internal/utils"
 	"log"
 	"regexp"
+	"watts-up/internal/repository"
+	"watts-up/internal/utils"
 
 	"github.com/charmbracelet/bubbles/list"
 	tea "github.com/charmbracelet/bubbletea"
