@@ -69,7 +69,6 @@ func (m ListModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 			areaRepo := repository.NewAreaRepo(db)
 			_, err = areaRepo.AddFavourite(re.ReplaceAllString(areaName.FilterValue(), ""))
-			log.Println(err)
 			if err != nil {
 				return m, nil
 			}
