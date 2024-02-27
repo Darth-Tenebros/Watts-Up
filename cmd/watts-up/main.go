@@ -1,3 +1,6 @@
+/*
+Package main serves as the entry point to the project
+*/
 package main
 
 import (

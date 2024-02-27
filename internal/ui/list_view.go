@@ -1,3 +1,6 @@
+/*
+Package ui has all the components for rendering the tui for the application
+*/
 package ui
 
 import (
@@ -11,10 +14,12 @@ import (
 	"github.com/charmbracelet/lipgloss"
 )
 
+// Item represents a list.Item entry
 type Item struct {
 	AreaName string
 }
 
+// AreasToListItems converts a []string of area names into a []list.Item
 func AreasToListItems(areas []string) []list.Item {
 	var items []list.Item
 	for _, area := range areas {
@@ -26,25 +31,36 @@ func AreasToListItems(areas []string) []list.Item {
 	return items
 }
 
+// Title returns the AreaName of this Item
 func (i Item) Title() string {
 	re := regexp.MustCompile("[^a-zA-Z0-9-]")
 	return re.ReplaceAllString(i.AreaName, "")
 }
+
+// Description returns the description of this Item
 func (i Item) Description() string { return "" }
+
+// FilterValue returns the filter value of this Item
+// in this case we use the Title as the filter value
 func (i Item) FilterValue() string { return i.Title() }
 
 var docStyle = lipgloss.NewStyle().Margin(1, 2)
 
+// ListModel implements the tea.Model interface
+// represents a list.Model that has the list of areas
 type ListModel struct {
 	List         list.Model
 	SelectedItem int
 	Infavourites bool
 }
 
+// Init implements tea.Model interface for ListModel
 func (m ListModel) Init() tea.Cmd {
 	return nil
 }
 
+// Update implements tea.Model interface for ListModel
+// handles the click / interaction events of the tui
 func (m ListModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	var cmd tea.Cmd
 	switch msg := msg.(type) {
@@ -142,6 +158,8 @@ func (m ListModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	m.List, cmd = m.List.Update(msg)
 	return m, cmd
 }
+
+// View implements tea.Model interface for ListModel
 func (m ListModel) View() string {
 	m.List.SetHeight(35)
 	m.List.SetWidth(50)

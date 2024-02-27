@@ -15,6 +15,8 @@ import (
 	"watts-up/internal/utils"
 )
 
+// LoadTableView loads the table tui for the given area name
+// returns the table.Model to be rendered
 func LoadTableView(areaName string) table.Model {
 	link := "https://eskom-calendar-api.shuttleapp.rs/outages/"
 
@@ -69,6 +71,7 @@ func LoadTableView(areaName string) table.Model {
 	return t
 }
 
+// fetches the load shedding schedule for the given area from the API
 func getSchedule(link, area string) (*utils.Schedule, error) {
 	fullUrl := link + area
 	var schedule utils.Schedule
@@ -92,6 +95,8 @@ func getSchedule(link, area string) (*utils.Schedule, error) {
 	return &schedule, nil
 }
 
+// LoadListView loads the table tui for the given area name
+// returns the table.Model to be rendered
 func LoadListView() tea.Model {
 	link := "https://eskom-calendar-api.shuttleapp.rs/list_areas"
 	res, err := http.Get(link)
