@@ -21,7 +21,7 @@ _you'll need to have go1.21.4 installed to build the app yourself_
     ```
     make
     cd bin
-    sudo mv esp /usr/local/bin/
+    sudo cp watts /usr/local/bin/
     ```
  - then you'll be able to use it system-wide like:
    ```
@@ -47,4 +47,4 @@ from the list view:
   fall under `city-of-cape-town-area-16`. Adding aliases would make filtering better.
 - [ ] add help menu to all views.
 - [ ] Dockerize project
-- [ ] Fix re-render bug
+- [x] Fix re-render bug
