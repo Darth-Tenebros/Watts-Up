@@ -1,3 +1,5 @@
+ARCHIVED BECAUSE API DOES NOT WORK ANYMORE.
+
 # Watts-Up
 
 ![demo image of esp](./img/demo.gif)
